@@ -1,0 +1,24 @@
+body {
+    background: #16222A;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #3A6073, #16222A);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #3A6073, #16222A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.tema-fond{
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  letter-spacing: 0.01071em;
+  display: table-cell;
+  vertical-align: inherit;
+  border-bottom: 1px solid rgb(81, 81, 81);
+  text-align: right;
+  padding: 16px;
+  color: rgb(255, 255, 255);
+  flex-direction: row-reverse;
+}
+
+.fond{
+  background: #414345;
+}
