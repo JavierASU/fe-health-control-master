@@ -1,10 +1,17 @@
 body {
-    background: #16222A;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #3A6073, #16222A);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #3A6073, #16222A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  background: #16222a; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #3a6073,
+    #16222a
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #3a6073,
+    #16222a
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-.tema-fond{
+.tema-fond {
   font-family: Roboto, Helvetica, Arial, sans-serif;
   font-weight: 500;
   font-size: 0.875rem;
@@ -19,6 +26,123 @@ background: linear-gradient(to right, #3A6073, #16222A); /* W3C, IE 10+/ Edge, F
   flex-direction: row-reverse;
 }
 
-.fond{
+.fond {
   background: #414345;
+}
+
+.span {
+  display: block;
+  font-family: monospace;
+  white-space: nowrap;
+  border-right: 4px solid;
+  width: 28ch;
+
+  animation: typing 2s steps(12), blink 0.5s infinite step-end alternate;
+  overflow: hidden;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.img1 {
+  width: 400px;
+  height: 300px;
+  border-radius: 0.25rem;
+}
+
+.button {
+  background: transparent;
+  color: #ffffff;
+  display: inline-block;
+  padding: 1rem, 2rem;
+  border-radius: 0.25rem;
+  min-width: -200px;
+  text-decoration: none;
+  box-shadow: 0 0 0 0 rgba(255, 254, 254, 0.966);
+  animation: pulse 1.5s infinite;
+  background: black;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(0.99);
+    box-shadow: 0 0 0 rgba(256, 256, 256, 1);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 50px rgba(256, 256, 256, 1);
+  }
+  100% {
+    transform: scale(0.99);
+    box-shadow: 0 0 0 rgba(256, 256, 256, 1);
+  }
+}
+
+.mydiv {
+  position: relative;
+  margin: 10% auto 0;
+
+  background: #16222a; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #3a6073,
+    #16222a
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #3a6073,
+    #16222a
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.animate-bg:before,
+.animate-bg:after {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: -8px;
+  background: linear-gradient(
+    120deg,
+    #79fb00,
+    #8d01a0,
+    #031ba5,
+    #ff004c,
+    #e6036d,
+    #fb0094,
+    #ff6600,
+    #04c2e4,
+    #adad02,
+    #00c3ff
+  );
+  background-size: 300%;
+  width: calc(100% + 16px);
+  height: calc(100% + 16px);
+  z-index: -1;
+  animation: BGgradient 12s ease infinite;
+}
+
+@keyframes BGgradient {
+  0% {
+    background-position: 0% 200%;
+  }
+  50% {
+    background-position: 200% 0%;
+  }
+  100% {
+    background-position: 0% 330%;
+  }
+}
+
+.animate-bg:after {
+  filter: brightness(1.4);
+  filter: drop-shadow(16px 16px 20px rgb(248, 220, 97));
+  filter: blur(15px);
 }

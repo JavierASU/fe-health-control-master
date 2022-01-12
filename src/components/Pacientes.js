@@ -21,6 +21,7 @@ import { red, yellow } from '@mui/material/colors';
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { UpdatePaciente } from './UpdatePaciente';
+import Navbar from "../components/Navbar";
 
 export default function Pacientes() {
     const navigate = useNavigate();
@@ -50,6 +51,8 @@ export default function Pacientes() {
 
     return (
         <div>
+            <Navbar />
+
             <TableContainer
                 component={Paper}
                 sx={{ mt: 5 }}
@@ -97,7 +100,7 @@ export default function Pacientes() {
                                             aria-label="outlined button group"
                                             size="small"
                                         >
-                                            <UpdatePaciente row={row}/>
+                                            <UpdatePaciente row={row} />
                                             <Button><DescriptionOutlinedIcon></DescriptionOutlinedIcon></Button>
                                             <IconButton
                                                 variant="outlined"
@@ -108,7 +111,7 @@ export default function Pacientes() {
                                                 <DeleteIcon
                                                     fontSize="inherit"
                                                     onClick={() => deleteInf(row.id)}
-                                                    sx={{ color: red[900] }} 
+                                                    sx={{ color: red[900] }}
                                                 />
                                             </IconButton>
                                         </ButtonGroup>

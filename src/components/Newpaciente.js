@@ -11,6 +11,7 @@ import {
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 export default function Newpaciente() {
   const [loading, setloading] = useState(false);
@@ -69,6 +70,7 @@ export default function Newpaciente() {
   };
   return (
     <div>
+      <Navbar />
       <Grid
         container
         direction="column"
@@ -76,11 +78,14 @@ export default function Newpaciente() {
         justifyContent="center"
       >
         <Grid item xs={4}>
-          <Card sx={{ mt: 15 }}>
-            <Typography variant="5" textAlign="center" justifyContent="center">
+          <Card sx={{ mt: 15 }} style={{
+            backgroundColor: "#1E272E",
+            padding: "1rem",
+          }}>
+            <Typography variant="5" textAlign="center" justifyContent="center" color="white" >
               <h1>Igresar Datos</h1>
             </Typography>
-            <CardContent>
+            <CardContent >
               <form onSubmit={handleSubmit}>
                 <TextField
                   variant="filled"
@@ -92,6 +97,10 @@ export default function Newpaciente() {
                   name="cedula"
                   onChange={handleChange}
                   value={paciente.cedula}
+                  inputProps={{ style: { color: "white" } }}
+                  InputLabelProps={{ style: { color: "white" } }}
+                  color="secondary"
+                  focused
                 />
                 <TextField
                   variant="filled"
@@ -103,6 +112,11 @@ export default function Newpaciente() {
                   name="nombreTitular"
                   onChange={handleChange}
                   value={paciente.nombreTitular}
+                  inputProps={{ style: { color: "white" } }}
+                  InputLabelProps={{ style: { color: "white" } }}
+                  color="secondary"
+                  focused
+
                 />
                 <TextField
                   variant="filled"
@@ -114,6 +128,8 @@ export default function Newpaciente() {
                   name="direccion"
                   onChange={handleChange}
                   value={paciente.direccion}
+                  inputProps={{ style: { color: "white" } }}
+                  InputLabelProps={{ style: { color: "white" } }}
                 />
                 <TextField
                   variant="filled"
@@ -125,6 +141,8 @@ export default function Newpaciente() {
                   name="telefono"
                   onChange={handleChange}
                   value={paciente.telefono}
+                  inputProps={{ style: { color: "white" } }}
+                  InputLabelProps={{ style: { color: "white" } }}
                 />
                 <TextField
                   variant="filled"
@@ -136,6 +154,8 @@ export default function Newpaciente() {
                   name="nombreMascota"
                   onChange={handleChange}
                   value={paciente.nombreMascota}
+                  inputProps={{ style: { color: "white" } }}
+                  InputLabelProps={{ style: { color: "white" } }}
                 />
                 <TextField
                   variant="filled"
@@ -147,6 +167,8 @@ export default function Newpaciente() {
                   name="tipoMascota"
                   onChange={handleChange}
                   value={paciente.tipoMascota}
+                  inputProps={{ style: { color: "white" } }}
+                  InputLabelProps={{ style: { color: "white" } }}
                 />
                 <TextField
                   variant="filled"
@@ -158,6 +180,8 @@ export default function Newpaciente() {
                   name="razaMascota"
                   onChange={handleChange}
                   value={paciente.razaMascota}
+                  inputProps={{ style: { color: "white" } }}
+                  InputLabelProps={{ style: { color: "white" } }}
                 />
                 <TextField
                   variant="filled"
@@ -169,6 +193,8 @@ export default function Newpaciente() {
                   name="edadMascota"
                   onChange={handleChange}
                   value={paciente.edadMascota}
+                  inputProps={{ style: { color: "white" } }}
+                  InputLabelProps={{ style: { color: "white" } }}
                 />
 
                 <TextField
@@ -183,6 +209,8 @@ export default function Newpaciente() {
                   name="comentarios"
                   onChange={handleChange}
                   value={paciente.comentarios}
+                  inputProps={{ style: { color: "white" } }}
+                  InputLabelProps={{ style: { color: "white" } }}
                 />
                 <Button
                   variant="contained"
