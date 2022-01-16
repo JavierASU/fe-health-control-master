@@ -10,7 +10,7 @@ function App() {
   return (
     <BrowserRouter>
       
-      <Container>
+      <Container >
         <Routes>
           <Route path="/NewPaciente" element={<NewPaciente />} />
           <Route path="/Pacientes" element={<Pacientes />} />
