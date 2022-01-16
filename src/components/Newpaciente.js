@@ -88,7 +88,7 @@ export default function Newpaciente() {
             <CardContent >
               <form onSubmit={handleSubmit}>
                 <TextField
-                  variant="filled"
+                  variant="outlined"
                   label="Cedula"
                   sx={{
                     display: "-ms-inline-flexbox",
@@ -99,11 +99,10 @@ export default function Newpaciente() {
                   value={paciente.cedula}
                   inputProps={{ style: { color: "white" } }}
                   InputLabelProps={{ style: { color: "white" } }}
-                  color="secondary"
-                  focused
+                  
                 />
                 <TextField
-                  variant="filled"
+                  variant="outlined"
                   label="Propietario"
                   sx={{
                     display: "-ms-inline-flexbox",
@@ -114,12 +113,11 @@ export default function Newpaciente() {
                   value={paciente.nombreTitular}
                   inputProps={{ style: { color: "white" } }}
                   InputLabelProps={{ style: { color: "white" } }}
-                  color="secondary"
-                  focused
+                  
 
                 />
                 <TextField
-                  variant="filled"
+                  variant="outlined"
                   label="Direccion"
                   sx={{
                     display: "-ms-inline-flexbox",
@@ -132,7 +130,7 @@ export default function Newpaciente() {
                   InputLabelProps={{ style: { color: "white" } }}
                 />
                 <TextField
-                  variant="filled"
+                  variant="outlined"
                   label="Telefono"
                   sx={{
                     display: "-ms-inline-flexbox",
@@ -145,7 +143,7 @@ export default function Newpaciente() {
                   InputLabelProps={{ style: { color: "white" } }}
                 />
                 <TextField
-                  variant="filled"
+                  variant="outlined"
                   label="Nombre de la Mascota"
                   sx={{
                     display: "-ms-inline-flexbox",
@@ -158,7 +156,7 @@ export default function Newpaciente() {
                   InputLabelProps={{ style: { color: "white" } }}
                 />
                 <TextField
-                  variant="filled"
+                  variant="outlined"
                   label="Especie"
                   sx={{
                     display: "-ms-inline-flexbox",
@@ -171,7 +169,7 @@ export default function Newpaciente() {
                   InputLabelProps={{ style: { color: "white" } }}
                 />
                 <TextField
-                  variant="filled"
+                  variant="outlined"
                   label="Raza"
                   sx={{
                     display: "-ms-inline-flexbox",
@@ -184,7 +182,7 @@ export default function Newpaciente() {
                   InputLabelProps={{ style: { color: "white" } }}
                 />
                 <TextField
-                  variant="filled"
+                  variant="outlined"
                   label="Edad"
                   sx={{
                     display: "-ms-inline-flexbox",

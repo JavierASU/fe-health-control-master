@@ -1,5 +1,5 @@
 {
-  "name": "bff-health-control",
+  "name": "fe-health-control",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

@@ -68,7 +68,7 @@ body {
   min-width: -200px;
   text-decoration: none;
   box-shadow: 0 0 0 0 rgba(255, 254, 254, 0.966);
-  animation: pulse 1.5s infinite;
+  animation: pulse 3s ;
   background: black;
 }
 @keyframes pulse {
