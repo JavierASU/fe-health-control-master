@@ -14,6 +14,8 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
 export default function Newpaciente() {
+  let navigate = useNavigate();
+
   const [loading, setloading] = useState(false);
 
   const [paciente, setPaciente] = useState({
@@ -50,7 +52,8 @@ export default function Newpaciente() {
     );
 
     setloading(false);
-    window.location.href = "/NewPaciente";
+    //window.location.href = "/NewPaciente";
+    navigate("/Pacientes");
   };
 
   /*   const handleSubmit = async (e) => {
@@ -196,6 +199,7 @@ export default function Newpaciente() {
                 />
 
                 <TextField
+                required={true}
                   variant="outlined"
                   label="Observaciones"
                   multiline

@@ -11,7 +11,7 @@ import ModalHeader from "react-bootstrap/esm/ModalHeader";
 import axios from "axios";
 import CreateIcon from "@mui/icons-material/Create";
 import { Button } from "@mui/material";
-import { yellow } from '@mui/material/colors';
+import { yellow } from "@mui/material/colors";
 
 export const UpdatePaciente = (props) => {
   const {
@@ -26,15 +26,15 @@ export const UpdatePaciente = (props) => {
     edadMascota,
     comentarios,
   } = props.row;
-
+  console.log(props.row);
   const [loading, setloading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const nw = {
-      id: paciente.id,
-      cedula: paciente.cedula,
+      // id: paciente.id,
+      //cedula: paciente.cedula,
       nombreTitular: paciente.nombreTitular,
       direccion: paciente.direccion,
       telefono: paciente.telefono,
@@ -45,7 +45,7 @@ export const UpdatePaciente = (props) => {
       comentarios: paciente.comentarios,
     };
     const res = await axios.put(
-      "http://localhost:8081/api/health-control/v1/pacientes" + id,
+      "http://localhost:8081/api/health-control/v1/pacientes/" + id,
       nw
     );
 
@@ -65,21 +65,24 @@ export const UpdatePaciente = (props) => {
   const handleShow = () => setShow(true);
 
   const [paciente, setPaciente] = useState({
-    cedula: "",
-    nombreTitular: "",
-    direccion: "",
-    telefono: "",
-    nombreMascota: "",
-    tipoMascota: "",
-    razaMascota: "",
-    edadMascota: "",
-    comentarios: "",
+    cedula: cedula,
+    nombreTitular: nombreTitular,
+    direccion: direccion,
+    telefono: telefono,
+    nombreMascota: nombreMascota,
+    tipoMascota: tipoMascota,
+    razaMascota: razaMascota,
+    edadMascota: edadMascota,
+    comentarios: comentarios,
   });
 
   return (
     <div>
-      <Button >
-        <CreateIcon sx={{ color: yellow[900] }} onClick={handleShow}></CreateIcon>
+      <Button>
+        <CreateIcon
+          sx={{ color: yellow[900] }}
+          onClick={handleShow}
+        ></CreateIcon>
       </Button>
       <Modal show={show} onHide={handleClose}>
         <ModalHeader closeButton>Actualizar Datos: {id}</ModalHeader>
@@ -87,6 +90,7 @@ export const UpdatePaciente = (props) => {
           <Form onSubmit={handleSubmit}>
             <FormText>Cedula</FormText>
             <FormControl
+              disabled={true}
               type="text"
               value={paciente.cedula}
               onChange={(e) => handleChange(e, "cedula", setPaciente)}
@@ -94,6 +98,7 @@ export const UpdatePaciente = (props) => {
             <FormGroup>
               <Form.Text>Prpietario</Form.Text>
               <Form.Control
+                required
                 type="text"
                 value={paciente.nombreTitular}
                 onChange={(e) => handleChange(e, "nombreTitular", setPaciente)}
@@ -102,6 +107,7 @@ export const UpdatePaciente = (props) => {
             <FormGroup>
               <Form.Text>Direccion</Form.Text>
               <Form.Control
+                required
                 type="text"
                 value={paciente.direccion}
                 onChange={(e) => handleChange(e, "direccion", setPaciente)}
@@ -110,6 +116,7 @@ export const UpdatePaciente = (props) => {
             <FormGroup>
               <Form.Text>Telefono</Form.Text>
               <Form.Control
+                required
                 type="text"
                 value={paciente.telefono}
                 onChange={(e) => handleChange(e, "telefono", setPaciente)}
@@ -118,6 +125,7 @@ export const UpdatePaciente = (props) => {
             <FormGroup>
               <Form.Text>Nombre de la Mascota</Form.Text>
               <Form.Control
+                required
                 type="text"
                 value={paciente.nombreMascota}
                 onChange={(e) => handleChange(e, "nombreMascota", setPaciente)}
@@ -126,6 +134,7 @@ export const UpdatePaciente = (props) => {
             <FormGroup>
               <Form.Text>Especie</Form.Text>
               <Form.Control
+                required
                 type="text"
                 value={paciente.tipoMascota}
                 onChange={(e) => handleChange(e, "tipoMascota", setPaciente)}
@@ -134,6 +143,7 @@ export const UpdatePaciente = (props) => {
             <FormGroup>
               <Form.Text>Raza</Form.Text>
               <Form.Control
+                required
                 type="text"
                 value={paciente.razaMascota}
                 onChange={(e) => handleChange(e, "razaMascota", setPaciente)}
@@ -142,6 +152,7 @@ export const UpdatePaciente = (props) => {
             <FormGroup>
               <Form.Text>Edad</Form.Text>
               <Form.Control
+                required
                 type="text"
                 value={paciente.edadMascota}
                 onChange={(e) => handleChange(e, "edadMascota", setPaciente)}
@@ -150,12 +161,13 @@ export const UpdatePaciente = (props) => {
             <FormGroup>
               <Form.Text>Observaciones</Form.Text>
               <Form.Control
+                required
                 type="text"
                 value={paciente.comentarios}
                 onChange={(e) => handleChange(e, "comentarios", setPaciente)}
               />
             </FormGroup>
-            <Button variant="contained" color="success" onClick={handleSubmit}>
+            <Button variant="contained" type="submit" color="success">
               Actualizar
             </Button>
           </Form>
