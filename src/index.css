@@ -1,14 +1,14 @@
 body {
-  background: #16222a; /* fallback for old browsers */
+  background: #918383; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
-    #3a6073,
-    #16222a
+    #9c9292,
+    #6b6464
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to right,
-    #3a6073,
-    #16222a
+    #615b5b,
+    #696464
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .tema-fond {
@@ -68,7 +68,7 @@ body {
   min-width: -200px;
   text-decoration: none;
   box-shadow: 0 0 0 0 rgba(255, 254, 254, 0.966);
-  animation: pulse 3s ;
+  animation: pulse 3s infinite;
   background: black;
 }
 @keyframes pulse {
@@ -93,12 +93,12 @@ body {
   background: #16222a; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
-    #3a6073,
+    rgb(0, 0, 0),
     #16222a
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to right,
-    #3a6073,
+    #020405,
     #16222a
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
@@ -145,4 +145,62 @@ body {
   filter: brightness(1.4);
   filter: drop-shadow(16px 16px 20px rgb(248, 220, 97));
   filter: blur(15px);
+}
+
+.container {
+  position: absolute;
+  left: 48%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+}
+
+input {
+  outline: none;
+  box-sizing: border-box;
+  height: 60px;
+  width: 0px;
+  padding: 0 20px;
+  color: #000;
+  border-radius: 50px;
+  font-size: 20px;
+  border: 1px solid #d50000;
+  transition: all 0.7s ease;
+}
+
+::placeholder {
+  color: grey;
+}
+
+.btn {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 80px;
+  height: 80px;
+  background: #d50000;
+  line-height: 80px;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.btn i {
+  font-size: 25px;
+  color: white;
+  line-height: 80px;
+  transition: all 0.7s ease;
+}
+
+.container:hover input {
+  width: 350px;
+}
+
+.container:hover i {
+  transform: rotate(-360deg);
+}
+
+.btn:hover {
+  background: #cc0000;
 }
