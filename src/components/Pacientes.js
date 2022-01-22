@@ -22,6 +22,10 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { UpdatePaciente } from './UpdatePaciente';
 import Navbar from "../components/Navbar";
+import SnippetFolderIcon from '@mui/icons-material/SnippetFolder';
+import { Historial } from "./Historial";
+
+
 
 export default function Pacientes() {
     const navigate = useNavigate();
@@ -46,7 +50,7 @@ export default function Pacientes() {
         await axios.delete(
             "http://localhost:8081/api/health-control/v1/pacientes/" + id
         );
-        window.location.href = "/";
+        window.location.href = "/Pacientes";
     };
 
     return (
@@ -101,12 +105,14 @@ export default function Pacientes() {
                                             size="small"
                                         >
                                             <UpdatePaciente row={row} />
-                                            <Button><DescriptionOutlinedIcon></DescriptionOutlinedIcon></Button>
+                                            <Historial row={row} />
+                                            
                                             <IconButton
                                                 variant="outlined"
                                                 aria-label="delete"
                                                 size="short"
                                                 onClick={() => deleteInf(row.id)}
+
                                             >
                                                 <DeleteIcon
                                                     fontSize="inherit"
@@ -114,6 +120,8 @@ export default function Pacientes() {
                                                     sx={{ color: red[900] }}
                                                 />
                                             </IconButton>
+
+                                            
                                         </ButtonGroup>
                                     </div>
                                 </TableCell>

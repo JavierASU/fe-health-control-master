@@ -52,20 +52,9 @@ export default function Newpaciente() {
     );
 
     setloading(false);
-    //window.location.href = "/NewPaciente";
+
     navigate("/Pacientes");
   };
-
-  /*   const handleSubmit = async (e) => {
-          e.preventDefault();
-  
-          const res = await fetch("http://localhost:8081/api/health-control/v1/pacientes", {
-              method: "POST",
-              body: JSON.stringify(paciente)
-          })
-          const data = await res.json()
-          console.log(data)
-      } */
 
   const handleChange = (e) => {
     setPaciente({ ...paciente, [e.target.name]: e.target.value });
@@ -102,7 +91,7 @@ export default function Newpaciente() {
                   value={paciente.cedula}
                   inputProps={{ style: { color: "white" } }}
                   InputLabelProps={{ style: { color: "white" } }}
-                  
+
                 />
                 <TextField
                   variant="outlined"
@@ -116,7 +105,7 @@ export default function Newpaciente() {
                   value={paciente.nombreTitular}
                   inputProps={{ style: { color: "white" } }}
                   InputLabelProps={{ style: { color: "white" } }}
-                  
+
 
                 />
                 <TextField
@@ -199,7 +188,7 @@ export default function Newpaciente() {
                 />
 
                 <TextField
-                required={true}
+                  required={true}
                   variant="outlined"
                   label="Observaciones"
                   multiline

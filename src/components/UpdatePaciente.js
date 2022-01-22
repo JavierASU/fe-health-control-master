@@ -14,6 +14,13 @@ import { Button } from "@mui/material";
 import { yellow } from "@mui/material/colors";
 
 export const UpdatePaciente = (props) => {
+
+  const [loading, setloading] = useState(false);
+
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   const {
     id,
     cedula,
@@ -27,7 +34,18 @@ export const UpdatePaciente = (props) => {
     comentarios,
   } = props.row;
   console.log(props.row);
-  const [loading, setloading] = useState(false);
+
+  const [paciente, setPaciente] = useState({
+    cedula: cedula,
+    nombreTitular: nombreTitular,
+    direccion: direccion,
+    telefono: telefono,
+    nombreMascota: nombreMascota,
+    tipoMascota: tipoMascota,
+    razaMascota: razaMascota,
+    edadMascota: edadMascota,
+    comentarios: comentarios,
+  });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -60,21 +78,9 @@ export const UpdatePaciente = (props) => {
     }));
   };
 
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
-  const [paciente, setPaciente] = useState({
-    cedula: cedula,
-    nombreTitular: nombreTitular,
-    direccion: direccion,
-    telefono: telefono,
-    nombreMascota: nombreMascota,
-    tipoMascota: tipoMascota,
-    razaMascota: razaMascota,
-    edadMascota: edadMascota,
-    comentarios: comentarios,
-  });
+
+
 
   return (
     <div>
