@@ -33,7 +33,7 @@ export const UpdatePaciente = (props) => {
     edadMascota,
     comentarios,
   } = props.row;
-  console.log(props.row);
+
 
   const [paciente, setPaciente] = useState({
     cedula: cedula,
@@ -90,7 +90,7 @@ export const UpdatePaciente = (props) => {
           onClick={handleShow}
         ></CreateIcon>
       </Button>
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose} striped bordered hover variant="dark">
         <ModalHeader closeButton>Actualizar Datos: {id}</ModalHeader>
         <ModalBody>
           <Form onSubmit={handleSubmit}>

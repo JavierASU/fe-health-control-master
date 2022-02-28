@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import axios from "axios";
 import VerHistorialModal from "./historialModal";
+import Navbar from "../components/Navbar";
 
 export default function Historiales() {
   const [historiales, setHistoriales] = useState([]);
@@ -25,8 +26,16 @@ export default function Historiales() {
     }
     loadData();
   }, [setHistoriales, id]);
+
+  const deleteInf = async (id) => {
+    await axios.delete(
+      `http://localhost:8081/api/health-control/v1/historiales/`+id
+    );
+    window.location.href = "/Historiales";
+  };
   return (
     <div>
+      <Navbar />
       <h1>Historiales</h1>
       <h2>Paciente - {id}</h2>
 
@@ -52,7 +61,7 @@ export default function Historiales() {
                   </TableCell>
                   <TableCell>
                     <VerHistorialModal id={item.id} />
-                    <Button>Eliminar</Button>
+                    <Button onClick={() => deleteInf(item.id)}>Eliminar</Button>
                   </TableCell>
                 </TableRow>
               ))

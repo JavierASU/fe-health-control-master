@@ -1,4 +1,4 @@
-import { Button, Card, CardContent, FormControl, Grid, Modal, TextField, Typography } from '@mui/material'
+import { Button, Card, CardContent, FormControl, Grid, Modal, TextField, Typography, TextareaAutosize } from '@mui/material'
 import { useState } from 'react'
 import axios from "axios";
 import DoneIcon from '@mui/icons-material/Done';
@@ -26,7 +26,7 @@ export const Historial = (props) => {
         comentarios,
 
     } = props.row;
-    console.log(props.row)
+   
 
 
     const [paciente, setPaciente] = useState({
@@ -47,9 +47,9 @@ export const Historial = (props) => {
         e.preventDefault();
 
         const nw = {
-            pacienteId:id,
+            pacienteId: id,
             informe: paciente.informe,
-            
+
         };
         const res = await axios.post(
             "http://localhost:8081/api/health-control/v1/historiales",
@@ -66,7 +66,7 @@ export const Historial = (props) => {
             [valueName]: value,
         }));
     };
-    console.log(paciente)
+    
 
     return (
         <div>
@@ -77,7 +77,7 @@ export const Historial = (props) => {
             >
                 <Grid container direction="column" alignItems="center" justifyContent="center">
                     <Grid item xs={3}>
-                        <Card sx={{ mt: 20 }}
+                        <Card sx={{ mt: 5 }}
                             style={{
                                 backgroundColor: "#1E272E",
                                 padding: "1rem",
@@ -91,6 +91,9 @@ export const Historial = (props) => {
                                 <FormControl>
 
                                     <TextField required={true}
+                                        maxRows={15}
+                                        aria-label="maximum height"
+                                        style={{ width: 1000 }}
                                         name="informe"
                                         onChange={(e) => handleChange(e, "informe", setPaciente)}
                                         value={paciente.informe}

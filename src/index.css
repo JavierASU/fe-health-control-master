@@ -204,3 +204,7 @@ input {
 .btn:hover {
   background: #cc0000;
 }
+
+.btn-delete{
+  margin-bottom: 1000;
+}
