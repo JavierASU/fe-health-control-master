@@ -1,16 +1,8 @@
 import React, { useState, useEffect } from "react";
-import {
-  Modal,
-  Form,
-  ModalBody,
-  FormGroup,
-  FormControl,
-  FormText,
-} from "react-bootstrap";
+import { Button, Card, CardContent, FormControl, Grid, Modal, TextField, Typography, TextareaAutosize } from '@mui/material'
 import ModalHeader from "react-bootstrap/esm/ModalHeader";
 import axios from "axios";
 import CreateIcon from "@mui/icons-material/Create";
-import { Button } from "@mui/material";
 import { yellow } from "@mui/material/colors";
 
 export default function VerHistorialModal(props) {
@@ -40,20 +32,44 @@ export default function VerHistorialModal(props) {
   return (
     <div>
       <Button onClick={() => handleShow()}>Ver</Button>
-      <Modal show={show} onHide={handleClose}>
-        <ModalHeader closeButton>Detalle Historial: {id}</ModalHeader>
-        <ModalBody>
-          <Form>
-            <FormControl
-              disabled={true}
-              type="textarea"
-              value={historial.data}
-            ></FormControl>
-            <Button variant="contained" type="submit" color="success">
-              Actualizar
-            </Button>
-          </Form>
-        </ModalBody>
+      <Modal
+        open={show}
+        onClose={handleClose}
+      >
+        <Grid container direction="column" alignItems="center" justifyContent="center">
+          <Grid item xs={3}>
+            <Card sx={{ mt: 5 }}
+              style={{
+                backgroundColor: "#1E272E",
+                padding: "1rem",
+              }}>
+              <Typography variant="h4" textAlign="center" color="white">
+                Crear Historial
+              </Typography>
+              <Typography color={"white"} textAlign="center">HISTORIAL #-{id}</Typography>
+
+              <CardContent>
+                <FormControl>
+
+                  <TextField required={true}
+                    maxRows={15}
+                    aria-label="maximum height"
+                    style={{ width: 1000 }}
+                    name="informe"
+                    value={historial.data}
+                    variant="outlined"
+                    label="Agregar Historial"
+                    multiline
+                    sx={{ m: 1, mt: 3, width: '100ch' }}
+                    name="comentarios"
+                    inputProps={{ style: { color: "white" } }}
+                    InputLabelProps={{ style: { color: "white" } }}>
+                  </TextField>
+                </FormControl>
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
       </Modal>
     </div>
   );
