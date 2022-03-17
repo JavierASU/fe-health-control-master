@@ -19,8 +19,13 @@ export default function Historiales() {
   const { id } = useParams();
   useEffect(() => {
     async function loadData() {
+      const env = process.env.REACT_APP_ENV;
+      const host =
+        env === "PROD"
+          ? process.env.REACT_APP_BFF_HOST
+          : "http://localhost:8081";
       const result = await axios.get(
-        `http://localhost:8081/api/health-control/v1/pacientes/${id}`
+        `${host}/api/health-control/v1/pacientes/${id}`
       );
       setHistoriales(result.data.historiales);
     }
@@ -28,9 +33,10 @@ export default function Historiales() {
   }, [setHistoriales, id]);
 
   const deleteInf = async (id) => {
-    await axios.delete(
-      `http://localhost:8081/api/health-control/v1/historiales/`+id
-    );
+    const env = process.env.REACT_APP_ENV;
+    const host =
+      env === "PROD" ? process.env.REACT_APP_BFF_HOST : "http://localhost:8081";
+    await axios.delete(`${host}/api/health-control/v1/historiales/${id}`);
     window.location.href = "/Historiales";
   };
   return (

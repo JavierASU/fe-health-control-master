@@ -46,10 +46,10 @@ export default function Newpaciente() {
       edadMascota: paciente.edadMascota,
       comentarios: paciente.comentarios,
     };
-    const res = await axios.post(
-      "http://localhost:8081/api/health-control/v1/pacientes",
-      nw
-    );
+    const env = process.env.REACT_APP_ENV;
+    const host =
+      env === "PROD" ? process.env.REACT_APP_BFF_HOST : "http://localhost:8081";
+    const res = await axios.post(`${host}/api/health-control/v1/pacientes`, nw);
 
     setloading(false);
 
@@ -70,14 +70,22 @@ export default function Newpaciente() {
         justifyContent="center"
       >
         <Grid item xs={4}>
-          <Card sx={{ mt: 15 }} style={{
-            backgroundColor: "#1E272E",
-            padding: "1rem",
-          }}>
-            <Typography variant="5" textAlign="center" justifyContent="center" color="white" >
+          <Card
+            sx={{ mt: 15 }}
+            style={{
+              backgroundColor: "#1E272E",
+              padding: "1rem",
+            }}
+          >
+            <Typography
+              variant="5"
+              textAlign="center"
+              justifyContent="center"
+              color="white"
+            >
               <h1>Igresar Datos</h1>
             </Typography>
-            <CardContent >
+            <CardContent>
               <form onSubmit={handleSubmit}>
                 <TextField
                   variant="outlined"
@@ -91,7 +99,6 @@ export default function Newpaciente() {
                   value={paciente.cedula}
                   inputProps={{ style: { color: "white" } }}
                   InputLabelProps={{ style: { color: "white" } }}
-
                 />
                 <TextField
                   variant="outlined"
@@ -105,8 +112,6 @@ export default function Newpaciente() {
                   value={paciente.nombreTitular}
                   inputProps={{ style: { color: "white" } }}
                   InputLabelProps={{ style: { color: "white" } }}
-
-
                 />
                 <TextField
                   variant="outlined"

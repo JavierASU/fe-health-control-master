@@ -14,7 +14,6 @@ import { Button } from "@mui/material";
 import { yellow } from "@mui/material/colors";
 
 export const UpdatePaciente = (props) => {
-
   const [loading, setloading] = useState(false);
 
   const [show, setShow] = useState(false);
@@ -33,7 +32,6 @@ export const UpdatePaciente = (props) => {
     edadMascota,
     comentarios,
   } = props.row;
-
 
   const [paciente, setPaciente] = useState({
     cedula: cedula,
@@ -62,8 +60,11 @@ export const UpdatePaciente = (props) => {
       edadMascota: paciente.edadMascota,
       comentarios: paciente.comentarios,
     };
+    const env = process.env.REACT_APP_ENV;
+    const host =
+      env === "PROD" ? process.env.REACT_APP_BFF_HOST : "http://localhost:8081";
     const res = await axios.put(
-      "http://localhost:8081/api/health-control/v1/pacientes/" + id,
+      `${host}/api/health-control/v1/pacientes/${id}`,
       nw
     );
 
@@ -78,10 +79,6 @@ export const UpdatePaciente = (props) => {
     }));
   };
 
-
-
-
-
   return (
     <div>
       <Button>
@@ -90,7 +87,14 @@ export const UpdatePaciente = (props) => {
           onClick={handleShow}
         ></CreateIcon>
       </Button>
-      <Modal show={show} onHide={handleClose} striped bordered hover variant="dark">
+      <Modal
+        show={show}
+        onHide={handleClose}
+        striped
+        bordered
+        hover
+        variant="dark"
+      >
         <ModalHeader closeButton>Actualizar Datos: {id}</ModalHeader>
         <ModalBody>
           <Form onSubmit={handleSubmit}>

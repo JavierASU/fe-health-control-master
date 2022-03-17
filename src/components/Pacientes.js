@@ -25,31 +25,33 @@ import Navbar from "../components/Navbar";
 import SnippetFolderIcon from "@mui/icons-material/SnippetFolder";
 import { Historial } from "./Historial";
 
-
 export default function Pacientes() {
   const navigate = useNavigate();
   const params = useParams();
 
   const [pacientes, setPacientes] = useState([]);
-  const [buscar, setBuscar] = useState("")
+  const [buscar, setBuscar] = useState("");
 
   const cargarPaciente = async () => {
+    const env = process.env.REACT_APP_ENV;
+    const host =
+      env === "PROD" ? process.env.REACT_APP_BFF_HOST : "http://localhost:8081";
     const res = await axios.get(
-      "http://localhost:8081/api/health-control/v1/pacientes?cedula=" + buscar
+      `${host}/api/health-control/v1/pacientes?cedula=${buscar}`
     );
 
     setPacientes(res.data);
   };
 
   const handleChange = (e) => {
-    setBuscar(e.target.value)
-
+    setBuscar(e.target.value);
   };
 
   const deleteInf = async (id) => {
-    await axios.delete(
-      "http://localhost:8081/api/health-control/v1/pacientes/" + id
-    );
+    const env = process.env.REACT_APP_ENV;
+    const host =
+      env === "PROD" ? process.env.REACT_APP_BFF_HOST : "http://localhost:8081";
+    await axios.delete(`${host}/api/health-control/v1/pacientes/${id}`);
     window.location.href = "/Pacientes";
   };
 
@@ -83,9 +85,8 @@ export default function Pacientes() {
                   margin: ".5rem 0",
                 }}
                 inputProps={{ style: { color: "white" } }}
-                InputLabelProps={{ style: { color: "white" } }}>
-
-              </TextField>
+                InputLabelProps={{ style: { color: "white" } }}
+              ></TextField>
               <Button onClick={() => cargarPaciente()}>buscar</Button>
             </FormControl>
             <TableRow>
@@ -173,10 +174,11 @@ export default function Pacientes() {
                         <DeleteIcon
                           fontSize="inherit"
                           onClick={() => deleteInf(row.id)}
-                          sx={{ color: red[900], }}
+                          sx={{ color: red[900] }}
                         />
                       </IconButton>
-                      <SnippetFolderIcon onClick={() => navigate(`/Historiales/${row.id}`)}
+                      <SnippetFolderIcon
+                        onClick={() => navigate(`/Historiales/${row.id}`)}
                         sx={{ color: yellow[800], width: 80, marginTop: 1 }}
                         fontSize="medium"
                       ></SnippetFolderIcon>

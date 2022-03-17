@@ -54,8 +54,11 @@ export const Historial = (props) => {
       pacienteId: id,
       informe: paciente.informe,
     };
+    const env = process.env.REACT_APP_ENV;
+    const host =
+      env === "PROD" ? process.env.REACT_APP_BFF_HOST : "http://localhost:8081";
     const res = await axios.post(
-      "http://localhost:8081/api/health-control/v1/historiales",
+      `${host}/api/health-control/v1/historiales`,
       nw
     );
     console.log(res);
